@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Login from './login'
 import Register from './register'
+import githublogo from "../public/icons8-github-240.png"
 
 function App() {
   const [showLogin, setShowLogin] = useState(false)
@@ -67,8 +68,21 @@ function App() {
         )}
       </main>
       <footer className="py-4 bg-green-900 text-center text-green-200 text-xs">
-        © {new Date().getFullYear()} Poker App. Tutti i diritti riservati. (ne ho zero)
+        © {new Date().getFullYear()} Poker App. Tutti i diritti riservati. (ad averne)
       </footer>
+
+      {/* Footer GitHub link */}
+      <div className="fixed bottom-4 left-4 w-12 aspect-square max-w-xs sm:max-w-sm md:max-w-md text-gray-400 text-sm hover:text-white transition-colors duration-300 z-50">
+        <a
+          href="https://github.com/FrancescoDalCanto/meow-focus"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full h-full"
+        >
+          <img src={githublogo} className="w-full h-full opacity-25 hover:opacity-55 transition-all duration-200" />
+
+        </a>
+      </div>
     </div>
   )
 }
