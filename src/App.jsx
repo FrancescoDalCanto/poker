@@ -1,4 +1,6 @@
+import './language/i18n'
 import { useState } from 'react'
+import { useTranslation } from "react-i18next"
 import Login from './login'
 import Register from './register'
 import githublogo from "../public/icons8-github-240.png"
@@ -6,33 +8,34 @@ import githublogo from "../public/icons8-github-240.png"
 function App() {
   const [showLogin, setShowLogin] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-700 via-green-900 to-black flex flex-col">
       <header className="py-8 bg-green-800 shadow-lg">
         <h1 className="text-4xl font-bold text-center text-yellow-300 drop-shadow-lg tracking-widest">
-          Poker
+          Pok3r
         </h1>
       </header>
       <main className="flex flex-1 items-center justify-center">
         <div className="bg-white/10 rounded-xl shadow-2xl p-8 max-w-lg w-full flex flex-col items-center">
           <p className="text-lg text-white mb-4">
-            Benvenuto al tavolo da Poker!
+            {t("Benvenuto al tavolo da Poker!")}
           </p>
           <button
             className="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold py-2 px-6 rounded-full shadow-lg transition mb-2"
             onClick={() => setShowLogin(true)}
           >
-            Login
+            {t("Login")}
           </button>
           <span className="text-white">
-            oppure{' '}
+            {t("oppure")}{' '}
             <button
               className="underline text-yellow-300 hover:text-yellow-400 font-semibold"
               onClick={() => setShowRegister(true)}
               type="button"
             >
-              Registrati
+              {t("Registrati")}
             </button>
           </span>
         </div>
@@ -68,7 +71,7 @@ function App() {
         )}
       </main>
       <footer className="py-4 bg-green-900 text-center text-green-200 text-xs">
-        © {new Date().getFullYear()} Poker App. Tutti i diritti riservati. (ad averne)
+        © {new Date().getFullYear()} Poker App. {t("Tutti i diritti riservati.")} (ad averne)
       </footer>
 
       {/* Footer GitHub link */}
@@ -80,7 +83,6 @@ function App() {
           className="w-full h-full"
         >
           <img src={githublogo} className="w-full h-full opacity-25 hover:opacity-55 transition-all duration-200" />
-
         </a>
       </div>
     </div>

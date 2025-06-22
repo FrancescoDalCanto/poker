@@ -3,9 +3,11 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../src/firebase/firebase_config'
 import getFirebaseErrorMessage from '../src/firebase/firebase_error'
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next"
 
 export default function Login() {
     const navigate = useNavigate();
+    const { t } = useTranslation()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -24,11 +26,11 @@ export default function Login() {
 
     return (
         <div className="flex flex-col items-center">
-            <h2 className="text-2xl font-bold text-green-800 mb-4">Login</h2>
+            <h2 className="text-2xl font-bold text-green-800 mb-4">{t("Login")}</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
                 <input
                     type="email"
-                    placeholder="Email"
+                    placeholder={t("Email")}
                     className="px-4 py-2 rounded border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
@@ -36,7 +38,7 @@ export default function Login() {
                 />
                 <input
                     type="password"
-                    placeholder="Password"
+                    placeholder={t("Password")}
                     className="px-4 py-2 rounded border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
@@ -49,7 +51,7 @@ export default function Login() {
                     type="submit"
                     className="bg-green-700 hover:bg-green-800 text-yellow-200 font-bold py-2 rounded transition"
                 >
-                    Accedi
+                    {t("Accedi")}
                 </button>
             </form>
         </div>
