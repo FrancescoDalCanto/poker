@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@sendgrid/mail": "^8.1.5",
     "@tailwindcss/vite": "^4.1.10",
     "firebase": "^11.9.1",
+    "firebase-admin": "^13.4.0",
     "i18next": "^25.2.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
